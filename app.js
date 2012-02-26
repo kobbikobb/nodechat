@@ -58,7 +58,7 @@ io.sockets.on('connection', function (socket) {
     socket.on('message', function (data) {
         data.time = getIcelandicDateString();
         messages.unshift(data);
-        socket.emit('message', data);
+        io.sockets.emit('message', data);
     });
 });
 

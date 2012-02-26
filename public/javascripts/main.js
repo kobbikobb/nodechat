@@ -14,7 +14,7 @@ function AppViewModel() {
 
     var self = this;
 
-    self.socket = io.connect('http://localhost:3000/');
+    self.socket = io.connect();
 
     self.messages = ko.observableArray();
 
