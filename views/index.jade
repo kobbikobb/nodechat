@@ -1,0 +1,15 @@
+fieldset
+    legend Spjallið
+    br
+    form.form-inline(data-bind="submit: sendMessage")
+        input(data-bind="value: message.name, valueUpdate: 'afterkeydown'", placeholder="Nafn")
+        = " "
+        input(data-bind="value: message.message, valueUpdate: 'afterkeydown'", placeholder="Skilaboð")
+        = " "
+        button.btn.btn-primary(type="submit", data-bind="enable: message.isValid") Senda skilaboð
+
+    div(data-bind="foreach: messages")
+        .alert.alert-info
+            strong(data-bind="text: name")
+            strong.time(data-bind="text: time")
+            p(data-bind="text: message")
