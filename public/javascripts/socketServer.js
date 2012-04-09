@@ -3,6 +3,15 @@ var stringFuncs = require('./stringFunctions.js');
 var messages = [];
 var users = [];
 
+function userExists(user)
+{
+	for(var i = 0; i < users.length; i++){
+		if(users[i].username === user.username)
+			return true;
+	}
+	return false;	
+}
+
 function listen(app)
 {
     var io = require("socket.io").listen(app);
@@ -25,10 +34,14 @@ function listen(app)
             data.time = stringFuncs.getIcelandicDateString();
             messages.push(data);
             io.sockets.emit('message', data);
-                  
-            var user = {name: data.name};
-            users.push(user);
-            io.sockets.emit('user', user);
+             
+            var user = {username: data.username};
+			if(!userExists(user)){
+				users.push(user);
+            	io.sockets.emit('user', user);
+			} 
+			    
+            
         }); 
         
         /*socket.on('register', function (user) {
