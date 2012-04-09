@@ -7,15 +7,14 @@ fieldset
 		input(data-bind="value: newMessage.text, valueUpdate: 'afterkeydown'", placeholder="Skilaboð")
 		= " "
 		button.btn.btn-primary(type="submit", data-bind="enable: newMessage.isValid") Senda skilaboð
-	div(data-bind="foreach: messages")
-		.alert.alert-info
-			strong(data-bind="text: username")
-			strong.time(data-bind="text: time")
-			p(data-bind="text: text")			
-	div(data-bind="foreach: users")
-		.alert
-			strong(data-bind="text: username")	
+	div(class="mini-layout fluid")
+		div(class="mini-layout-sidebar", data-bind="foreach: users")
+			.alert
+				strong(data-bind="text: username")
+		div(class="mini-layout-body", data-bind="foreach: messages")
+			.alert.alert-info
+				strong(data-bind="text: username")
+				strong.time(data-bind="text: time")
+				p(data-bind="text: text")				
 script(type="text/javascript")
 	ko.applyBindings(new ChatViewModel());
-	
-
