@@ -26,6 +26,7 @@ app.configure('production', function(){
 
 // Routes
 app.get('/', routes.index);
+app.get('/users', routes.users);
 
 //Socket server
 modules.listen(app);

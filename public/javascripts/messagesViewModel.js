@@ -23,7 +23,7 @@ function MessagesViewModel() {
     }
     
     self.socket.on('message', function (message) {
-        self.messages.unshift(message);
+        self.messages.push(message);
     });
     
     self.socket.on('messages', function (messages) {
