@@ -12,23 +12,23 @@ function listen(app)
         
         socket.on('message', function (data) {
             
-            var username;
+            /*var username;
             socket.get('username', function (err, user) {
                  username = user;
               });   
           
           	if(data.name == null)
             	data.name = username;
-            
+            */
             data.time = stringFuncs.getIcelandicDateString();
             messages.unshift(data);
             
             io.sockets.emit('message', data);
         }); 
         
-        socket.on('register', function (user) {
+        /*socket.on('register', function (user) {
             socket.set('username', user);
-        });
+        });*/
     });
 }
 
