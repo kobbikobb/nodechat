@@ -4,6 +4,7 @@ var express = require('express')
     ,modules = require('./public/javascripts/socketServer');
 
 var app = module.exports = express.createServer();
+var app = express.createServer();
 
 // Configuration
 app.configure(function(){

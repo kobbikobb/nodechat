@@ -17,7 +17,9 @@ function listen(app)
                  username = user;
               });   
           
-            data.name = username;
+          	if(data.name == null)
+            	data.name = username;
+            
             data.time = stringFuncs.getIcelandicDateString();
             messages.unshift(data);
             
