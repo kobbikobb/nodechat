@@ -1,0 +1,10 @@
+fieldset
+	legend
+		h1 Innskráning
+	br
+	form.form-inline(action='/login', method='POST')
+		input(type='hidden', name='redir', value=redir)
+		p
+			input(type='text', name='username', id='username', placeholder="Notendanafn")
+			= " "
+			button.btn.btn-primary(type="submit") Áfram
