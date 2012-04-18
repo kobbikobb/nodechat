@@ -4,3 +4,16 @@ body {
 .time{
     float: right;
 }
+#leftnav {
+	float: left;
+	width: 80%;
+}
+#rightnav {
+	float: right;
+	width: 20%;
+}
+
+#messages{
+	overflow: auto;
+	height: 400px;
+}

@@ -1,20 +1,37 @@
 fieldset
-	legend Spjallið
+	legend
+		h1 Spjallið
 	br
 	form.form-inline(data-bind="submit: newMessage.sendMessage")
+		input(type="text", value="#{session.user}")
 		input(data-bind="value: newMessage.username, valueUpdate: 'afterkeydown'", placeholder="Nafn")
 		= " "
 		input(data-bind="value: newMessage.text, valueUpdate: 'afterkeydown'", placeholder="Skilaboð")
 		= " "
 		button.btn.btn-primary(type="submit", data-bind="enable: newMessage.isValid") Senda skilaboð
-	div(class="mini-layout fluid")
-		div(class="mini-layout-sidebar", data-bind="foreach: users")
-			.alert
-				strong(data-bind="text: username")
-		div(class="mini-layout-body", data-bind="foreach: messages")
+	div(id="leftnav")
+		legend
+			h3 Skilaboð
+		div(id="messages", data-bind="foreach: messages")
 			.alert.alert-info
 				strong(data-bind="text: username")
 				strong.time(data-bind="text: time")
-				p(data-bind="text: text")				
+				p(data-bind="text: text")		
+	div(id="rightnav")
+		div(style="margin-left:12px")
+			legend 
+				h3 Tengdir
+			div(data-bind="foreach: users")
+				.alert
+					strong(data-bind="text: username")
+	
 script(type="text/javascript")
-	ko.applyBindings(new ChatViewModel());
+	function scrollToBottom(){
+		var objDiv = document.getElementById("messages");
+		objDiv.scrollTop = objDiv.scrollHeight;
+	}
+	
+	var chatViewModel = new ChatViewModel();
+	ko.applyBindings(chatViewModel);
+	chatViewModel.messages.subscribe(scrollToBottom);
+	
