@@ -2,10 +2,7 @@ fieldset
 	legend
 		h1 Spjallið
 	br
-	form.form-inline(data-bind="submit: newMessage.sendMessage")
-		input(type="text", value="#{session.user}")
-		input(data-bind="value: newMessage.username, valueUpdate: 'afterkeydown'", placeholder="Nafn")
-		= " "
+	form.form-inline(data-bind="submit: sendMessage")
 		input(data-bind="value: newMessage.text, valueUpdate: 'afterkeydown'", placeholder="Skilaboð")
 		= " "
 		button.btn.btn-primary(type="submit", data-bind="enable: newMessage.isValid") Senda skilaboð
@@ -27,11 +24,11 @@ fieldset
 	
 script(type="text/javascript")
 	function scrollToBottom(){
-		var objDiv = document.getElementById("messages");
-		objDiv.scrollTop = objDiv.scrollHeight;
+		var objMessages = document.getElementById("messages");
+		objMessages.scrollTop = objMessages.scrollHeight;
 	}
 	
-	var chatViewModel = new ChatViewModel();
+	var chatViewModel = new ChatViewModel("#{user}");
 	ko.applyBindings(chatViewModel);
 	chatViewModel.messages.subscribe(scrollToBottom);
 	
