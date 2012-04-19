@@ -1,19 +1,60 @@
-body {
-  padding-top: 50px;
+#main {
+	width: 960px;
+	margin: 2em auto;
+	border: 1px solid #ddd;
+	padding: 2em;    
+	position:absolute;
+	bottom:0;
+    top:0;
+    left:0;
+    right:0;
 }
-.time{
-    float: right;
+
+#header {
+position:absolute;
+right:0px;
+top:0px;
+z-index:-1;
+margin:2em;
 }
-#leftnav {
+
+#console {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+    right: 0;
+    padding: 6px;
+    background-color: #E0FFFF; 	
+    border-top:1px solid #48CCCD;
+}
+
+#console input{
+	margin: 0px;
+	width: 99%;
+}
+#console form{
+	margin: 0px;
+	padding: 0px;
+}
+#messagesregion {
 	float: left;
 	width: 80%;
 }
-#rightnav {
+#usersregion {
 	float: right;
 	width: 20%;
 }
-
 #messages{
 	overflow: auto;
-	height: 400px;
+	height: 590px;
+	padding-right: 10px;
+}
+#users{
+	overflow: auto;
+	height: 590px;
+	padding-right: 10px;
+}
+
+.time{
+    float: right;
 }

@@ -1,27 +1,23 @@
 fieldset
-	legend
-		h1 Spjallið
-	br
-	form.form-inline(data-bind="submit: sendMessage")
-		input(data-bind="value: newMessage.text, valueUpdate: 'afterkeydown'", placeholder="Skilaboð")
-		= " "
-		button.btn.btn-primary(type="submit", data-bind="enable: newMessage.isValid") Senda skilaboð
-	div(id="leftnav")
+	div(id="messagesregion")
 		legend
-			h3 Skilaboð
+			h2 Spjallið
 		div(id="messages", data-bind="foreach: messages")
 			.alert.alert-info
 				strong(data-bind="text: username")
 				strong.time(data-bind="text: time")
 				p(data-bind="text: text")		
-	div(id="rightnav")
+	div(id="usersregion")
 		div(style="margin-left:12px")
 			legend 
-				h3 Tengdir
-			div(data-bind="foreach: users")
+				h2 Tengdir
+			div(id="users", data-bind="foreach: users")
 				.alert
 					strong(data-bind="text: username")
-	
+	div(id="console")
+		form(data-bind="submit: sendMessage")
+			input(data-bind="value: newMessage.text, valueUpdate: 'afterkeydown'", placeholder="Skrifaðu skilaboð hér!")
+			
 script(type="text/javascript")
 	function scrollToBottom(){
 		var objMessages = document.getElementById("messages");

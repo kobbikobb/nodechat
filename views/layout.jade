@@ -10,10 +10,10 @@ html
 		script(src='/javascripts/chatViewModel.js')
 		script(src='/socket.io/socket.io.js')
 	body
-		.main
-			.header
+		#main
+			#header
 				- if (session.user)
-					.user= 'Þú ert ' + session.user
+					.user= 'Hæ ' + session.user + '!'
 					.logout
-						a(href='/logout') hætta
-			.container!= body
+						a(href='/logout') Hætta
+			#container!= body
