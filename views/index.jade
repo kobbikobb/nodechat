@@ -24,7 +24,12 @@ script(type="text/javascript")
 		objMessages.scrollTop = objMessages.scrollHeight;
 	}
 	
-	var chatViewModel = new ChatViewModel("#{user}");
+	//register the logged in user
+	var socket = io.connect();
+	socket.emit('register', "#{user}");
+	
+	//Create a view model and start listening
+	var chatViewModel = new ChatViewModel();
 	ko.applyBindings(chatViewModel);
 	chatViewModel.messages.subscribe(scrollToBottom);
 	

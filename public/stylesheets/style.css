@@ -11,11 +11,11 @@
 }
 
 #header {
-position:absolute;
-right:0px;
-top:0px;
-z-index:-1;
-margin:2em;
+	position: absolute;
+	right: 0px;
+	top: 0px;
+	z-index: 0;
+	margin: 2em;
 }
 
 #console {

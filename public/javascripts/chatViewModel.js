@@ -9,11 +9,10 @@ function Message()
     });   
 }
 
-function ChatViewModel(user) {
+function ChatViewModel() {
     var self = this;
 
-    self.username = user;
-    self.socket = io.connect();
+    self.socket = io.connect();   
     self.newMessage = new Message();
 
     self.messages = ko.observableArray();    
@@ -36,7 +35,7 @@ function ChatViewModel(user) {
     	if(self.newMessage.text() == "")
             return;
             
-        self.socket.emit("message", { username: self.username, text: self.newMessage.text() });
+        self.socket.emit("message", { text: self.newMessage.text() });
         self.newMessage.text("");
     }
 }
