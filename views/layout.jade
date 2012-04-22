@@ -13,7 +13,7 @@ html
 		#main
 			#header
 				- if (session.user)
-					.user= 'Hæ ' + session.user + '!'
-					.logout
-						a(href='/logout') Hætta
+					#user= session.user
+					#logout
+						a(href='/logout') hætta
 			#container!= body

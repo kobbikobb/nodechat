@@ -1,4 +1,4 @@
-#main {
+#main { 
 	width: 960px;
 	margin: 2em auto;
 	border: 1px solid #ddd;
@@ -15,7 +15,15 @@
 	right: 0px;
 	top: 0px;
 	z-index: 0;
-	margin: 2em;
+	margin: 5px;
+}
+
+#user {
+
+}
+
+#logout {
+	float: right;
 }
 
 #console {
@@ -32,6 +40,14 @@
 	margin: 0px;
 	width: 99%;
 }
+
+#console input::-webkit-input-placeholder {
+    color: blue;
+}
+#console input:-moz-placeholder {
+    color: blue;
+}
+
 #console form{
 	margin: 0px;
 	padding: 0px;

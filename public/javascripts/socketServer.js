@@ -18,7 +18,7 @@ function listen(app)
     var io = require("socket.io").listen(app);
 
     io.sockets.on('connection', function (socket) {
-
+	
         socket.emit('messages', messages);
         socket.emit('users', users);
         
