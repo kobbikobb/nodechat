@@ -11,7 +11,7 @@ function removeUser(user)
 		}
 	}	
 }
-nodejs detect memory leaks
+
 function listen(app)
 {
     var io = require("socket.io").listen(app);
