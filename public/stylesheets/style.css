@@ -1,5 +1,6 @@
 #main { 
 	width: 960px;
+	height: 650px;
 	margin: 2em auto;
 	border: 1px solid #ddd;
 	padding: 2em;    
@@ -9,23 +10,22 @@
     left:0;
     right:0;
 }
-
+#container {
+	height: 100%;
+}
 #header {
 	position: absolute;
 	right: 0px;
 	top: 0px;
 	z-index: 0;
-	margin: 5px;
+	margin: 10px;
 }
-
 #user {
 
 }
-
 #logout {
 	float: right;
 }
-
 #console {
 	position: absolute;
 	bottom: 0;
@@ -35,42 +35,40 @@
     background-color: #E0FFFF; 	
     border-top:1px solid #48CCCD;
 }
-
 #console input{
 	margin: 0px;
 	width: 99%;
 }
-
 #console input::-webkit-input-placeholder {
     color: blue;
 }
 #console input:-moz-placeholder {
     color: blue;
 }
-
-#console form{
+console form{
 	margin: 0px;
 	padding: 0px;
 }
 #messagesregion {
+	height: 100%;
 	float: left;
-	width: 80%;
+	width: 79%;
 }
 #usersregion {
+	height: 100%;
 	float: right;
 	width: 20%;
 }
 #messages{
+    height: 85%;
 	overflow: auto;
-	height: 590px;
 	padding-right: 10px;
 }
 #users{
+    height: 85%
 	overflow: auto;
-	height: 590px;
 	padding-right: 10px;
 }
-
 .time{
     float: right;
 }

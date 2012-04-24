@@ -1,7 +1,7 @@
 // Module dependencies.
 var express = require('express')
     ,routes = require('./routes')
-    ,modules = require('./public/javascripts/socketServer');
+    ,socketServer = require('./public/javascripts/socketServer');
 
 var MemoryStore = express.session.MemoryStore;
 
@@ -61,8 +61,10 @@ app.post('/login', function(req, res) {
 });
 
 //Socket server
-modules.listen(app);
+socketServer.listen(app);
 
 //Start the server
 app.listen(3000);
+
+console.log("The server is started!");
 																
