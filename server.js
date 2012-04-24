@@ -1,4 +1,3 @@
-// Module dependencies.
 var express = require('express')
     ,routes = require('./routes')
     ,socketServer = require('./public/javascripts/socketServer');
@@ -22,7 +21,6 @@ app.configure(function(){
 	app.use(app.router);
 });
 
-// Helpers
 app.dynamicHelpers(
   {
     session: function(req, res) {
@@ -60,10 +58,7 @@ app.post('/login', function(req, res) {
       res.redirect(req.body.redir || '/');
 });
 
-//Socket server
 socketServer.listen(app);
-
-//Start the server
 app.listen(process.env['app_port'] || 3000);
 
 console.log("The server is started!");

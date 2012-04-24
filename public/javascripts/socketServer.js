@@ -1,5 +1,6 @@
 var stringFuncs = require('./stringFunctions.js');
 
+var messages = [];
 var users = [];
 
 function removeUser(user)
@@ -8,6 +9,7 @@ function removeUser(user)
 		if(users[i].username === user.username) {
 			users.splice(i,1);
 			i--;
+			return;
 		}
 	}	
 }
@@ -17,7 +19,8 @@ function listen(app)
     var io = require("socket.io").listen(app);
 
     io.sockets.on('connection', function (socket) {
-
+	
+        socket.emit('messages', messages);
         socket.emit('users', users);
         
  		function getUser()
@@ -30,8 +33,10 @@ function listen(app)
 		}         
 
         socket.on('message', function (data) {
-	        data.username = getUser().username;        
+	        data.username = getUser().username;
+          
             data.time = stringFuncs.getIcelandicDateString();
+            messages.push(data);
             
             io.sockets.emit('message', data);
         }); 
