@@ -5,7 +5,6 @@ var express = require('express')
 
 var MemoryStore = express.session.MemoryStore;
 
-var app = module.exports = express.createServer();
 var app = express.createServer();
 
 // Configuration
