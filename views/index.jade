@@ -5,11 +5,13 @@
 			strong(data-bind="text: username")
 			strong.time(data-bind="text: time")
 			p(data-bind="text: text")		
+			
 #usersregion
 	legend Tengdir
 	div(id="users", data-bind="foreach: users")
 		.alert
 			strong(data-bind="text: username")
+			
 #console
 	form(data-bind="submit: sendMessage")
 		input(data-bind="value: newMessage.text, valueUpdate: 'afterkeydown'", placeholder="Skrifaðu skilaboð hér!")

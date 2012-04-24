@@ -64,7 +64,7 @@ app.post('/login', function(req, res) {
 socketServer.listen(app);
 
 //Start the server
-app.listen(3000);
+app.listen(process.env['app_port'] || 3000);
 
 console.log("The server is started!");
 																
