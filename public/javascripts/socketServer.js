@@ -5,6 +5,9 @@ var users = [];
 
 function removeUser(user)
 {
+	if(user == null)
+		return;
+		
 	for(var i = 0; i < users.length; i++) {
 		if(users[i].username === user.username) {
 			users.splice(i,1);
@@ -33,8 +36,10 @@ function listen(app)
 		}         
 
         socket.on('message', function (data) {
-	        data.username = getUser().username;
-          
+	        var user = getUser();
+	        if(user != null)
+	        	data.username = user.username;
+            
             data.time = stringFuncs.getIcelandicDateString();
             messages.push(data);
             

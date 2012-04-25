@@ -16,7 +16,7 @@ app.configure(function(){
     app.use(express.cookieParser());
     app.use(express.session(
     	{
-    		store: new MemoryStore(), secret:'kobbikobb'
+    		store: new MemoryStore(), reapInterval:  60000 * 10, secret:'kobbikobb'
 		}));
 	app.use(app.router);
 });
